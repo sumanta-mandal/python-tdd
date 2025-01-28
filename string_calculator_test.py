@@ -39,3 +39,8 @@ def test_more_than_1000_sum():
     assert add("1,1001") == 1
     assert add("2,1002,567,8765") == 569
     assert add("1234,1001") == 0
+
+def test_test_custom_delimiter_any_length():
+    assert add("//[***]\n1***2***3") == 6
+    assert add("//[;;]\n1;;2;;3") == 6
+    assert add("//[%%%%]\n1%%%%2%%%%3") == 6
