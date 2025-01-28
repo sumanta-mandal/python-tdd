@@ -24,3 +24,13 @@ def test_custom_delimiter():
     assert add("//|\n3|4|5") == 12
     assert add("//#\n10#20#30") == 60
     assert add("//@\n2@3@4") == 9
+
+def test_negative_numbers_throw_exception():
+    with pytest.raises(ValueError, match="negative numbers not allowed: -1,-2"):
+        add("-1,-2")
+
+    with pytest.raises(ValueError, match="negative numbers not allowed: -5,-3"):
+        add("1,-5,2,-3")
+        
+    with pytest.raises(ValueError, match="negative numbers not allowed: -4,-2"):
+        add("//;\n1;-4;3;-2")

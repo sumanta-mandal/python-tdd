@@ -5,4 +5,8 @@ def add(numbers: str) -> int:
         delimiter, numbers = numbers[2:].split("\n", 1)
         numbers = numbers.replace(delimiter, ",")
     numbers = numbers.replace("\n", ",")
-    return sum([int(num) for num in numbers.split(',')])
+    nums = [int(num) for num in numbers.split(',')]
+    negatives = [n for n in nums if n < 0]
+    if negatives:
+        raise ValueError(f"negative numbers not allowed: {','.join(map(str, negatives))}")
+    return sum(nums)
