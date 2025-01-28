@@ -6,6 +6,7 @@ def add(numbers: str) -> int:
         numbers = numbers.replace(delimiter, ",")
     numbers = numbers.replace("\n", ",")
     nums = [int(num) for num in numbers.split(',')]
+    nums = [num for num in nums if num <= 1000]
     negatives = [n for n in nums if n < 0]
     if negatives:
         raise ValueError(f"negative numbers not allowed: {','.join(map(str, negatives))}")

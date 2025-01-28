@@ -34,3 +34,8 @@ def test_negative_numbers_throw_exception():
         
     with pytest.raises(ValueError, match="negative numbers not allowed: -4,-2"):
         add("//;\n1;-4;3;-2")
+
+def test_more_than_1000_sum():
+    assert add("1,1001") == 1
+    assert add("2,1002,567,8765") == 569
+    assert add("1234,1001") == 0
