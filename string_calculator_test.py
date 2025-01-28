@@ -18,3 +18,9 @@ def test_newline_as_delimiter_one():
 
 def test_newline_as_delimiter_two():
     assert add("5\n7,3") == 15
+
+def test_custom_delimiter():
+    assert add("//;\n1;2") == 3
+    assert add("//|\n3|4|5") == 12
+    assert add("//#\n10#20#30") == 60
+    assert add("//@\n2@3@4") == 9
